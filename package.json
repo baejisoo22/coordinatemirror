@@ -1,0 +1,38 @@
+{
+  "name": "express-mysql-example",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "ejs": "^3.0.2",
+    "express": "^4.14.0",
+    "express-mysql-session": "^2.1.4",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.4.0",
+    "jquery": "^3.5.0",
+    "js-alert": "^1.0.4",
+    "multer": "^1.4.2",
+    "mysql": "2.11.1",
+    "node-popup": "^0.1.14",
+    "openweathermap-node": "^1.1.2",
+    "parsleyjs": "^2.9.2",
+    "pureimage": "^0.2.1",
+    "sanitize-html": "^1.23.0",
+    "uuid": "^8.1.0",
+    "validate": "^5.1.0",
+    "validator": "^13.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  },
+  "engines":{
+    "node": "^12.16.1" ,
+    "npm": "^6.13.4"
+}

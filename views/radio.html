@@ -1,0 +1,123 @@
+<!-- <html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>DOM과 Javascript 를 사용한 간단한 Show, Hide</title>
+<style>
+* {
+ font-size:12px;
+ font-weight:bold;
+}
+#mainmenu {
+ cursor:hand;
+ color:red;
+}
+#submenu {
+ color:pink;
+ display:block; // 속성을 block대신 none를 쓰면 공간도 없어진다.
+ visibility:hidden; // 처음 로드되었을 때 보이지 않게 한다.
+}
+</style>
+<script>
+// 간단한 함수를 만든다. body에서 온클릭를 하면 함수가 실행된다.
+function showHide(aaa,bbb) {
+ var aaaa = document.getElementById(aaa); // 웹문서에서 ID 가 aaa,bbb 인요소를 가져와서
+ var bbbb = document.getElementById(bbb); // 변수 aaaa, bbbb 에 넣는다.
+ if(!aaaa) return;
+ if(aaaa.style.visibility == 'visible') {
+  aaaa.style.display = 'block'; //
+  aaaa.style.visibility = 'hidden';
+ } else {
+  aaaa.style.display = 'block';
+  aaaa.style.visibility = 'visible';
+ }
+}
+</script>
+</head>
+<body>
+<div id="mainmenu" onClick="showHide('submenu','mainmenu')">
+메인메뉴
+</div>
+<div id="submenu">
+서브메뉴1 | 서브메뉴2 | 서브메뉴3 | 서브메뉴4 | 서브메뉴5
+</div>
+여기부터는 내용입니다.
+</body>
+</html> -->
+
+<!-- <input type="radio" name="apply" value="방문접수" onclick="div_show(this.value,'divshow');"> 방문접수
+
+<div id="divshow" style="display:none;">
+<input type="radio" name="apply" value="현장접수" onclick="div_show(this.value,'divshow');"> 현장접수
+</div>
+
+   현장접수 내용
+
+
+
+
+
+
+
+<script>
+
+function div_show(s,ss){
+
+if(s == "현장접수"){
+
+      document.getElementById(ss).style.display = "";
+
+    }else{
+
+      document.getElementById(ss).style.display = "none";
+
+    }
+
+}
+
+</script> -->
+
+
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <META NAME="Generator" CONTENT="EditPlus">
+  <META NAME="Author" CONTENT="">
+  <META NAME="Keywords" CONTENT="">
+  <META NAME="Description" CONTENT="">
+  <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+
+ </HEAD>
+ <style>
+     #showHide { width:60%; height:60%; background-color:#FFCC00; margin:10px auto; }
+ </style>
+
+<script>
+    function show(){
+        document.getElementById("showHide").style.display ='block';
+    }
+    function hide(){
+        document.getElementById("showHide").style.display ='none';
+    }
+    function showHide(){
+        if(document.getElementById("showHide").style.display =='none'){
+            document.getElementById("showHide").style.display ='block';
+        }
+        else{
+            document.getElementById("showHide").style.display ='none';
+        }
+    }
+</script>
+<body>
+     <center>
+        <button onclick=show();>보이기</button>
+        <button onclick=hide();>숨기기</button>
+        <button onclick=showHide();>숨기기/보이기</button>
+    </center>
+    <div id="showHide" align="middle">
+        <center><input type="button" class="btn btn-light" onclick=" location.href='/addItem'" value="+"/>
+        <input type="button" class="btn btn-light" onclick=" location.href='/addItem'" value="EDIT"/>
+        <input type="button" class="btn btn-light" onclick=" location.href='/addItem'" value="DEL"/></center>
+    </div>
+
+ </BODY>
+</HTML>

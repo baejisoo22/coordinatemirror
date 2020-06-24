@@ -1,0 +1,137 @@
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Signin</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script><!--1-->
+  <script src="http://cdn.jsdelivr.net/parsleyjs/2.0.0-rc4/parsley.min.js"></script><!--2-->
+  <script src="parsley.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="http://cdn.jsdelivr.net/parsleyjs/2.0.0-rc4/parsley.min.js"></script>
+  <script src="jquery-3.5.0.min.js"></script>
+
+<style media="screen">
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+  }
+
+  .form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+  }
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  .form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+</style>
+</head>
+<body class="text-center">
+
+  <form action="/signup" name="signupform" method="POST" class="form-signin"
+  data-parsley-validate >
+  <input type="hidden" Name="userid" id="id" value="">
+  <input type="hidden" name="username" id="name" value="">
+  <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+
+      <input type="password" class="form-control" id="password" name="password" data-parsley-required placeholder="password" autocomplete="off"
+      data-parsley-trigger="keyup" data-parsley-minlength="4" data-parsley-maxlength="12"
+      data-parsley-minlength-message="4~12자로 입력하세요."
+      />
+
+      <input type="password" class="form-control" name="repeatpassword" id="passwordrepeat" data-parsley-required placeholder="repeat password" autocomplete="off"/>
+
+      <button type="submit" id="submit" class="btn btn-light">Sign up</button>
+  </form>
+  <center>
+  <div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
+  <div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
+  </center>
+
+<body>
+
+<script type="text/javascript">
+
+  function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+  //유효성 검사
+$('#signup').parsley();
+saveIdName();
+
+ //비밀번호 일치 확인
+    $(function(){
+      $("#alert-success").hide();
+      $("#alert-danger").hide();
+      $("input").keyup(function(){
+        var pwd1=$("#password").val();
+        var pwd2=$("#passwordrepeat").val();
+        if(pwd1 != "" || pwd2 != ""){
+          if(pwd1 == pwd2){ $("#alert-success").show();
+          $("#alert-danger").hide(); $("#submit").removeAttr("disabled");
+        }else{
+          $("#alert-success").hide();
+          $("#alert-danger").show();
+          $("#submit").attr("disabled", "disabled");
+        }
+      }
+    });
+  });
+
+//hidden 값 넣기 (userid,username)
+function saveIdName() {
+    var username=getParameterByName("username");
+    var userid=getParameterByName("checkid");
+    document.getElementById('id').value = userid;
+    document.getElementById('name').value = username;
+  }
+
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

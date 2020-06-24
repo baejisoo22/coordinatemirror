@@ -1,0 +1,45 @@
+--------회원정보 테이블--------
+CREATE TABLE `userinfo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` varchar(12) NOT NULL,
+ `password` varchar(12) NOT NULL,
+ `username` varchar(12) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+----아이템 테이블-----
+CREATE TABLE `useritem` (
+  `itemid` int(11) NOT NULL AUTO_INCREMENT,
+ `userid` varchar(12) NOT NULL,
+  `itemimg` varchar(100) NOT NULL,
+ `itemname` varchar(12) NOT NULL,
+ `category` varchar(12) NOT NULL,
+ `tag` varchar(12) NOT NULL,
+  PRIMARY KEY (`itemid`)
+);
+
+----메모 테이블-----
+CREATE TABLE `usernote` (
+  `noteid` int(11) NOT NULL AUTO_INCREMENT,
+ `userid` varchar(12) NOT NULL,
+ `note` text NOT NULL,
+`created` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`noteid`)
+);
+
+----사용자 코디 테이블-----
+CREATE TABLE `userlook` (
+  `userlookid` int(11) NOT NULL,
+`userlookname` int(11) NOT NULL,
+ `userid` varchar(12) NOT NULL,
+  `itemid` varchar(12) NOT NULL,
+ `userlookfavorite` int(1)
+);
+
+--------프로필 이미지 테이블--------
+create TABLE `profile` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` varchar(12) NOT NULL,
+ `profilepic` varchar(100),
+  PRIMARY KEY (`id`)
+);
